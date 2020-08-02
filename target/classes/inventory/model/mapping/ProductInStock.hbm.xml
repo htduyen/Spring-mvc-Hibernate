@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Aug 2, 2020 5:41:10 PM by Hibernate Tools 5.4.18.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="inventory_management" dynamic-insert="false" dynamic-update="false" mutable="true" name="inventory.model.ProductInStock" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="product_in_stock">
+        <id name="id" type="java.lang.Integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="inventory.model.ProductInfo" embed-xml="true" fetch="select" insert="true" name="productInfo" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="product_id" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="qty" optimistic-lock="true" type="int" unique="false">
+            <column name="qty" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="activeFlag" optimistic-lock="true" type="int" unique="false">
+            <column name="active_flag" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="createddate" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="19" name="createddate" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="updateddate" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="19" name="updateddate" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>
