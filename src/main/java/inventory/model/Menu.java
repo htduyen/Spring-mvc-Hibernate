@@ -3,6 +3,7 @@ package inventory.model;
 
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -19,7 +20,10 @@ public class Menu implements java.io.Serializable {
 	private Date createddate;
 	private Date updateddate;
 	private Set auths = new HashSet(0);
-
+	private List<Menu> child;
+	private String idMenu;
+	
+	
 	public Menu() {
 	}
 
@@ -118,4 +122,21 @@ public class Menu implements java.io.Serializable {
 		this.auths = auths;
 	}
 
+	public List<Menu> getChild() {
+		return child;
+	}
+
+	public void setChild(List<Menu> child) {
+		this.child = child;
+	}
+	
+	public String getIdMenu() {
+		return idMenu;
+	}
+
+	public void setIdMenu(String idMenu) {
+		this.idMenu = idMenu;
+	}
+
+	
 }
