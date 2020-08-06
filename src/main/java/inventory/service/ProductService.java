@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import inventory.dao.CategoryDAO;
 import inventory.model.Category;
+import inventory.model.Pagging;
 
 @Service
 public class ProductService {
@@ -45,7 +46,7 @@ public class ProductService {
 		return categoryDAO.findByProperty(property, value);
 	}
 	
-	public List<Category> getAllCategory(Category category){
+	public List<Category> getAllCategory(Category category, Pagging pagging){
 		log.info("show all category");
 		StringBuilder queryStr = new StringBuilder();
 		Map<String, Object> mapParams = new HashMap();
@@ -59,11 +60,11 @@ public class ProductService {
 				mapParams.put("code", category.getCode());
 			}
 			if(category.getName()!=null && !StringUtils.isEmpty(category.getName()) ) {
-				queryStr.append(" and model.name=:name");
-				mapParams.put("name", category.getName());
+				queryStr.append(" and model.name like :name");
+				mapParams.put("name", "%"+category.getName()+"%");
 			}
 		}
-		return categoryDAO.findAll(queryStr.toString(), mapParams);
+		return categoryDAO.findAll(queryStr.toString(), mapParams,pagging);
 	}
 	
 	public Category	 findByIdCategory(int id) {

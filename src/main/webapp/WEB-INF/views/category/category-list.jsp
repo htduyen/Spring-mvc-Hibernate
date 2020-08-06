@@ -16,57 +16,34 @@
 
 				<div class="x_content">
 					<a href="<c:url value="/category/add"/>" class="btn btn-app"><i class="fa fa-plus"></i>Add</a>
-					<div class="container"">
-						
-						<div class="x_panel">
-								<div class="x_title">
-									<h2>Search Form</h2>
-									<ul class="nav navbar-right panel_toolbox">
-										<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-										</li>
-										<li><a class="close-link"><i class="fa fa-close"></i></a>
-										</li>
-									</ul>
-									<div class="clearfix"></div>
-								</div>
-								<div class="x_content">
-
-									<!-- start form for validation -->
-									<!-- searchForm -->
-						<form:form modelAttribute="searchForm" cssClass="form-horizontal form-label-left" servletRelativeAction="/category/list" method="POST">
+					<div class="container" style="padding: 50px;">
+						<form:form modelAttribute="searchForm" cssClass="form-horizontal form-label-left" servletRelativeAction="/category/list/1" method="POST">
 							<div class="form-group">
 								<label for="description" class="control-label col-md-3 col-sm-3 col-xs-12">ID</label>
 								<div class="col-md-6 col-sm-6 col-xs-12">
-									<form:input path="id" cssClass="form-control col-md-7 col-xs-12"  />
+									<form:input path="id" cssClass="form-control col-md-7 col-xs-12" />
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="control-label col-md-3 col-sm-3 col-xs-12" for="code">Code 
-								</label>
+								<label class="control-label col-md-3 col-sm-3 col-xs-12" for="code">Code </label>
 								<div class="col-md-6 col-sm-6 col-xs-12">
-									<form:input path="code" cssClass="form-control col-md-7 col-xs-12"  />
+									<form:input path="code" cssClass="form-control col-md-7 col-xs-12" />
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name 
-								</label>
+								<label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name </label>
 								<div class="col-md-6 col-sm-6 col-xs-12">
-									<form:input path="name" cssClass="form-control col-md-7 col-xs-12"  />
+									<form:input path="name" cssClass="form-control col-md-7 col-xs-12" />
 								</div>
 							</div>
-							
+
 							<div class="form-group">
 								<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-										<button type="submit" class="btn btn-success">Search</button>
+									<button type="submit" class="btn btn-success">Search</button>
 								</div>
 							</div>
 
 						</form:form>
-						<!-- searchForm -->
-									<!-- end form for validations -->
-
-								</div>
-							</div>
 					</div>
 
 					<div class="table-responsive">
@@ -83,7 +60,7 @@
 							</thead>
 
 							<tbody>
-								<c:forEach items="${categories}"  var="category" varStatus="loop">
+								<c:forEach items="${categories}" var="category" varStatus="loop">
 
 									<c:choose>
 										<c:when test="${loop.index%2==0 }">
@@ -93,7 +70,7 @@
 											<tr class="odd pointer">
 										</c:otherwise>
 									</c:choose>
-									<td class=" ">${loop.index+1}</td>
+									<td class=" ">${pageInfo.getOffset()+loop.index+1}</td>
 									<td class=" ">${category.id }</td>
 									<td class=" ">${category.code }</td>
 									<td class=" ">${category.name }</td>
@@ -106,9 +83,8 @@
 
 							</tbody>
 						</table>
+						<jsp:include page="../layout/paging.jsp"></jsp:include>
 					</div>
-
-
 				</div>
 			</div>
 		</div>
@@ -120,14 +96,14 @@
 			 window.location.href = '<c:url value="/category/delete/"/>'+id;
 		 }
 	 }
+	 function gotoPage(page){
+		 $('#searchForm').attr('action','<c:url value="/category/list/"/>'+page);
+		 $('#searchForm').submit();
+	 }
 	 $(document).ready(function(){
-		 /*  Xử lý message lúc load page */
-		 /* $('.ui-pnotify').remove(); */
 		 processMessage();
 	 });
 	 function processMessage(){
-		 
-		 /* Get giá trị message từ Session */
 		 var msgSuccess = '${msgSuccess}';
 		 var msgError = '${msgError}';
 		 if(msgSuccess){
