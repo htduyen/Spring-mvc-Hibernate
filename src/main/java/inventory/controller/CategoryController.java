@@ -27,6 +27,7 @@ import inventory.model.Users;
 import inventory.service.ProductService;
 import inventory.util.Constant;
 import inventory.validate.CategoryValidator;
+import inventory.validate.ProductInfoValidator;
 
 @Controller
 public class CategoryController {

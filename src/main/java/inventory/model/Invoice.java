@@ -18,7 +18,10 @@ public class Invoice implements java.io.Serializable {
 	private int activeFlag;
 	private Date createddate;
 	private Date updateddate;
-
+	private Date fromDate;
+	private Date toDate;
+	private Integer productId;
+	
 	public Invoice() {
 	}
 
@@ -117,4 +120,31 @@ public class Invoice implements java.io.Serializable {
 		this.updateddate = updateddate;
 	}
 
+	public Date getFromDate() {
+		return fromDate;
+	}
+
+	public void setFromDate(Date fromDate) {
+		this.fromDate = fromDate;
+	}
+
+	public Date getToDate() {
+		return toDate;
+	}
+
+	public void setToDate(Date toDate) {
+		this.toDate = toDate;
+	}
+
+	public Integer getProductId() {
+		return productId;
+	}
+
+	public void setProductId(Integer productId) {
+		this.productId = productId;
+	}
+
+	
+	
+	
 }

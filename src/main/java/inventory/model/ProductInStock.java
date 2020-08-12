@@ -1,6 +1,7 @@
 package inventory.model;
 // Generated Aug 2, 2020 5:41:10 PM by Hibernate Tools 5.4.18.Final
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -12,6 +13,7 @@ public class ProductInStock implements java.io.Serializable {
 	private ProductInfo productInfo;
 	private int qty;
 	private int activeFlag;
+	private BigDecimal price;
 	private Date createddate;
 	private Date updateddate;
 
@@ -74,4 +76,13 @@ public class ProductInStock implements java.io.Serializable {
 		this.updateddate = updateddate;
 	}
 
+	public BigDecimal getPrice() {
+		return price;
+	}
+
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
+	
+	
 }

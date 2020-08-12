@@ -1,3 +1,9 @@
 eclipse.preferences.version=1
+encoding//src/main/java/inventory/controller/GoodsReceiptController.java=UTF-8
 encoding//src/main/java/inventory/controller/LoginController.java=UTF-8
+encoding//src/main/java/inventory/controller/ProductInfoController.java=UTF-8
 encoding//src/main/java/inventory/security/FilterSystem.java=UTF-8
+encoding//src/main/java/inventory/service/ProductInStockService.java=UTF-8
+encoding//src/main/java/inventory/service/ProductService.java=UTF-8
+encoding//src/main/java/inventory/util/ConfigLoader.java=UTF-8
+encoding//src/main/java/inventory/validate/InvoiceValidator.java=UTF-8

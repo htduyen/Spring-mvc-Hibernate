@@ -24,17 +24,17 @@
 
     <!-- Custom Theme Style -->
     <link href="<c:url value="/resources/build/css/custom.min.css"/>" rel="stylesheet">
-    
      <!-- PNotify -->
     <link href="<c:url value="/resources/vendors/pnotify/dist/pnotify.css"/>" rel="stylesheet">
     <link href="<c:url value="/resources/vendors/pnotify/dist/pnotify.buttons.css"/>" rel="stylesheet">
     <link href="<c:url value="/resources/vendors/pnotify/dist/pnotify.nonblock.css"/>" rel="stylesheet">
-    
+        <!-- bootstrap-datetimepicker -->
+    <link href="<c:url value="/resources/vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css"/>" rel="stylesheet">
       <!-- jQuery -->
     <script src="<c:url value="/resources/vendors/jquery/dist/jquery.min.js"/>"></script>
   </head>
 
-  <body class="nav-md footer_fixed">
+  <body class="nav-md ">
     <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col">
@@ -105,16 +105,16 @@
     <script src="<c:url value="/resources/vendors/nprogress/nprogress.js"/>"></script>
     <!-- jQuery custom content scroller -->
     <script src="<c:url value="/resources/vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"/>"></script>
-
      <!-- PNotify -->
     <script src="<c:url value="/resources/vendors/pnotify/dist/pnotify.js"/>"></script>
     <script src="<c:url value="/resources/vendors/pnotify/dist/pnotify.buttons.js"/>"></script>
     <script src="<c:url value="/resources/vendors/pnotify/dist/pnotify.nonblock.js"/>"></script>
+    <!-- bootstrap-datetimepicker -->    
+    <!-- bootstrap-daterangepicker -->
+    <script src="<c:url value="/resources/vendors/moment/min/moment.min.js"/>"></script>
+    <script src="<c:url value="/resources/vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"/>"></script>
 
     <!-- Custom Theme Scripts -->
-    <script src="<c:url value="/resources/build/js/custom.min.js"/>"></script>
-    <script>
-
-</script>
+    <script src="<c:url value="/resources/build/js/custom.js"/>"></script>
   </body>
 </html>
