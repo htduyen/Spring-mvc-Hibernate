@@ -58,7 +58,12 @@ public class ProductInStockService {
 			if(products!=null && !products.isEmpty()) {
 				product = products.get(0);
 				log.info("update qty="+invoice.getQty()+" and price="+invoice.getPrice());
-				product.setQty(product.getQty()+invoice.getQty());
+				if(invoice.getType()==2) {
+					product.setQty(product.getQty()-invoice.getQty());//10 - 5 = 5 , 5-(-3) = 8
+				}else {
+					product.setQty(product.getQty()+invoice.getQty());
+				}
+			
 				// type =1 receipt , type =2 issues
 				if(invoice.getType()==1) {
 					product.setPrice(invoice.getPrice());
