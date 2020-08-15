@@ -30,3 +30,13 @@ insert into menu(parent_id,url,name,order_index) values (0,'/product','Sản ph�
 (2,'/goods-issue/add','Thêm mới',-1),
 (2,'/goods-issue/save','Lưu',-1),
 (2,'/goods-issue/export','Xuất phiếu xuất hàng',-1),
+
+(3,'/role/edit','Sửa',-1),
+(3,'/role/view','Xem',-1),
+(3,'/role/add','Thêm mới',-1),
+(3,'/role/save','Lưu',-1),
+
+(3,'/menu/permission','Cấp quyền',-1),
+(3,'/menu/change-status','Cập nhật quyền',-1)
+
+

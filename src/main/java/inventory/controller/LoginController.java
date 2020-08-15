@@ -29,13 +29,10 @@ import inventory.validate.LoginValidate;
 
 @Controller
 public class LoginController {
-
-	@Autowired
+	@Autowired 
 	private UserService userService;
-	
 	@Autowired
 	private LoginValidate loginValidator;
-	
 	@InitBinder
 	private void initBinder(WebDataBinder binder) {
 		if(binder.getTarget()==null) return;
@@ -43,7 +40,6 @@ public class LoginController {
 			binder.setValidator(loginValidator);
 		}
 	}
-	//Khi nhap url tạo User rỗng
 	@GetMapping("/login")
 	public String login(Model model) {
 		model.addAttribute("loginForm", new Users());
@@ -54,10 +50,10 @@ public class LoginController {
 		if(result.hasErrors()) {
 			return "login/login";
 		}
+	
 		Users user  = userService.findByProperty("username", users.getUsername()).get(0);
-		
-		UserRole userRole = (UserRole) user.getUserRoles().iterator().next();
-		List<Menu> menuList = new ArrayList<Menu>();
+		UserRole userRole =(UserRole) user.getUserRoles().iterator().next();
+		List<Menu> menuList = new ArrayList<>();
 		Role role = userRole.getRole();
 		List<Menu> menuChildList = new ArrayList<>();
 		for(Object obj : role.getAuths()) {
@@ -88,22 +84,18 @@ public class LoginController {
 		session.setAttribute(Constant.USER_INFO, user);
 		return "redirect:/index";
 	}
-	
 	@GetMapping("/access-denied")
 	public String accessDenied() {
-		return "access=denied";
+		return "access-denied";
 	}
-	
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
-		
 		session.removeAttribute(Constant.MENU_SESSION);
 		session.removeAttribute(Constant.USER_INFO);
 		return "redirect:/login";
 	}
 	
-	
-	public void sortMenu(List<Menu> menus) {
+	private void sortMenu(List<Menu> menus) {
 		Collections.sort(menus, new Comparator<Menu>() {
 			@Override
 			public int compare(Menu o1, Menu o2) {
@@ -111,4 +103,5 @@ public class LoginController {
 			}
 		});
 	}
+
 }
